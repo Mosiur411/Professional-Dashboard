@@ -1,131 +1,242 @@
 import React from 'react';
 import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
+import './DashboardNav.css'
+import { RiAppsFill } from "react-icons/ri";
+import { AiOutlineCalendar, AiFillFileAdd, AiOutlineShoppingCart, AiOutlineMail, AiFillProject } from "react-icons/ai";
+import { BsChatDotsFill } from "react-icons/bs";
+import { BiBookAlt } from "react-icons/bi";
+import { RiContactsFill } from "react-icons/ri";
+import { SiGnuprivacyguard, SiElement } from "react-icons/si";
+import { GiNautilusShell } from "react-icons/gi";
+import { MdTransform, MdArrowDropDown, MdArrowRight } from "react-icons/md";
+import { VscDebugBreakpointLog } from "react-icons/vsc";
+
+
 
 const DashboardNav = () => {
 
-    const [close, setClose] = useState(false)
+    const [close, setClose] = useState(false);
+    const [DropdownEnter, setDropdownEnter] = useState(-1)
+
+    const main_menu = [
+        {
+            Route: 'Dashboard',
+            Path: '/',
+            icon: <RiAppsFill />,
+            height: '11rem',
+            Service: [
+                {
+                    ServicePath: '/E-commerce',
+                    ServiceRoute: 'E-commerce',
+                },
+                {
+                    ServicePath: '/Saas',
+                    ServiceRoute: 'Saas',
+                },
+                {
+                    ServicePath: '/Crypto',
+                    ServiceRoute: 'Crypto',
+                }
+            ]
+        },
+        {
+            Route: 'Calendar',
+            Path: '/calendar',
+            height: '7.4rem',
+            icon: <AiOutlineCalendar />,
+            Service: [
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'E-commerce',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Saas',
+                }
+            ]
+        },
+        {
+            Route: 'Chat',
+            Path: '/chat',
+            height: '11rem',
+            icon: <BsChatDotsFill />,
+            Service: [
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Ecommerce',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Saas',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Crypto',
+                }
+            ]
+        },
+        {
+            Route: 'Manager',
+            Path: '/',
+            height: '11rem',
+            icon: <AiFillFileAdd />,
+            Service: [
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'E-commerce',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Saas',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Crypto',
+                }
+            ]
+        },
+        {
+            Route: 'E_commerce',
+            Path: '/',
+            height: '11rem',
+            icon: <AiOutlineShoppingCart />,
+            Service: [
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'E-commerce',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Saas',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Crypto',
+                }
+            ]
+        },
+        {
+            Route: 'Email',
+            Path: '/email',
+            icon: <AiOutlineMail />
+        },
+        {
+            Route: 'Invoices',
+            Path: '/invoices',
+            icon: <BiBookAlt />
+        },
+        {
+            Route: 'Projects',
+            Path: '/projects',
+            icon: <AiFillProject />
+        },
+        {
+            Route: 'Contacts',
+            Path: '/contacts',
+            icon: <RiContactsFill />
+        },
+        {
+            Route: 'Authentication',
+            Path: '/authentication',
+            icon: <SiGnuprivacyguard />
+        },
+        {
+            Route: 'Utility',
+            Path: '/utility',
+            icon: <GiNautilusShell />
+        },
+        {
+            Route: 'UI_Element',
+            Path: '/ui_element',
+            icon: <SiElement />
+        },
+        {
+            Route: 'Forms',
+            Path: '/forms',
+            height: '11rem',
+            icon: <MdTransform />,
+            Service: [
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'E-commerce',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Saas',
+                },
+                {
+                    ServicePath: '/',
+                    ServiceRoute: 'Crypto',
+                }
+            ]
+        },
+    ]
 
     return (
         <div className=' h-full'>
             {/* <!-- Component Start --> */}
-            <div class={`flex flex-col items-center justify-between h-full overflow-hidden transition-all duration-300  ease-in-out text-gray-700 bg-gray-100 rounded ${close ? 'w-16 duration-300' : 'w-60 '}`}>
+            <div class={`flex flex-col items-center justify-between h-full overflow-x-hidden scrollbar overflow-y-auto transition-all duration-300  ease-in-out text-gray-700 bg-white shadow-2xl shadow-gray-500 rounded ${close ? 'w-16 duration-500' : 'w-60 '}`}>
                 <div className=' w-full flex flex-col justify-between '>
                     <NavLink to='/' className={`w-full  ${close ? 'px-0' : 'px-4'}`}>
                         <div class={` w-full items-center mt-3 h-12  ${close ? '  flex  items-center w-full ml-3' : 'flex flex-row '}`}>
                             <div className={`${close ? '' : 'py-1'}`}>
-                                <svg onClick={() => setClose(!close)} class={`w-8 h-8  fill-current ${close && 'mx-auto ml-1'} `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <svg onClick={() => setClose(!close)} class={`w-8 h-8  fill-current text-[#887fed] ${close && 'mx-auto ml-1'} `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
                                 </svg>
                             </div>
 
                             <div className=' overflow-hidden'>
-                                <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >The App</span>
+                                <span className={`transition-all duration-300 ease-out overflow-hidden text-sm font-semibold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >The App</span>
                             </div>
-
-
                         </div>
                     </NavLink>
 
                     <div class="w-full px-2">
                         <div class="flex flex-col  items-center w-full mt-3 border-t border-gray-300">
-                            <NavLink to='/' className='w-full' >
-                                <div class="flex w-full items-center h-12 px-3 mt-2 rounded hover:bg-gray-300">
+                            {
+                                main_menu.map((menu, index) =>
+                                    <>
+                                        <NavLink to={menu?.Path} className='w-full' >
+                                            <div class="flex w-full items-center h-12 px-3 mt-2 rounded transition-all duration-150 ease-in hover:pl-5">
+                                                <div className={` ${close ? ' py-1 ' : 'py-1'}`}>
+                                                    <div class={` text-2xl  stroke-current  ${close && 'mx-auto '} `}>
+                                                        {menu?.icon}
+                                                    </div>
+                                                </div>
+                                                <div onClick={() => setDropdownEnter(index)} className=' overflow-hidden flex h-6 w-[80%]  '>
+                                                    <span className={`transition-all  w-[80%]  duration-500 ease-out overflow-hidden text-sm font-semibold ${close ? ' translate-x-[-24rem] -ml-28  ' : 'duration-500 translate-x-0 pl-2'}`}  >{menu?.Route}</span>
+                                                    <div className={`inline-flex h-full mt-1 float-right ${(menu?.Service) ? 'block' : 'hidden'}  `}>
+                                                        {
+                                                            (DropdownEnter == index) ? <MdArrowDropDown className=' text-lg' /> : <MdArrowRight className=' text-lg' />
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                    <div className={` ${close ? '  py-1  ' : 'py-1'}`}>
-                                        <svg class={`w-6 h-6  stroke-current  ${close && 'mx-auto '} `} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-                                        </svg>
-                                    </div>
+                                            <div className={`overflow-hidden transition-all duration-500 ease-in ${(menu?.Service) ? 'block' : 'hidden'}  ${(DropdownEnter == index) ? 'h-[11rem]' : 'h-0'}`}>
+                                                {menu?.Service?.map(dropmenu =>
+                                                    <div>
+                                                        <NavLink to={dropmenu?.ServicePath}>
+                                                            <div class="flex w-full items-center shadow-[#7267f083] text-white shadow-md bg-gradient-to-r from-[#887fed] to-[#c0b9f9] h-12 px-3 mt-2 rounded transition-all duration-150 ease-in ">
+                                                                <div className={` ${close ? ' py-1 ' : 'py-1'}`}>
+                                                                    <div class={` text-2xl  stroke-current  ${close && 'mx-auto '} `}>
+                                                                        <VscDebugBreakpointLog className=' text-lg' />
+                                                                    </div>
+                                                                </div>
+                                                                <div onClick={() => setDropdownEnter(index)} className='overflow-hidden h-6 w-[80%]'>
+                                                                    <span className={`transition-all  w-[80%]  duration-500 ease-out overflow-hidden text-sm font-semibold ${close ? ' translate-x-[-24rem] -ml-28 ' : 'duration-500 translate-x-0 pl-2'}`} >{dropmenu?.ServiceRoute}</span>
+                                                                </div>
+                                                            </div>
+                                                        </NavLink>
+                                                    </div>
 
-
-                                    <div className=' overflow-hidden'>
-                                        <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Dasboard</span>
-                                    </div>
-
-
-                                </div>
-                            </NavLink>
-
-                            <NavLink to="#" className='w-full'>
-                                <div class="flex w-full items-center  h-12 px-3 mt-2 rounded hover:bg-gray-300">
-                                    <div className={` ${close ? '  py-1  ' : 'py-1'}`}>
-                                        <svg class={`w-6 h-6  stroke-current  ${close && 'mx-auto '} `} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                        </svg>
-                                    </div>
-
-                                    <div className=' overflow-hidden'>
-                                        <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Search</span>
-                                    </div>
-                                </div>
-                            </NavLink>
-
-                            <NavLink to="#" className='w-full'>
-                                <div class="flex w-full items-center  h-12 px-3 mt-2 bg-gray-300 rounded">
-                                    <div className={` ${close ? '  py-1  ' : 'py-1'}`}>
-                                        <svg class={`w-6 h-6  stroke-current  ${close && 'mx-auto '} `} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                        </svg>
-                                    </div>
-
-                                    <div className=' overflow-hidden'>
-                                        <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Insights</span>
-                                    </div>
-                                </div>
-                            </NavLink>
-
-                            <NavLink to="#" className='w-full'>
-                                <div class="flex w-full items-center  h-12 px-3 mt-2 rounded hover:bg-gray-300">
-                                    <div className={` ${close ? '  py-1  ' : 'py-1'}`}>
-                                        <svg class={`w-6 h-6  stroke-current  ${close && 'mx-auto '} `} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7v8a2 2 0 002 2h6M8 7V5a2 2 0 012-2h4.586a1 1 0 01.707.293l4.414 4.414a1 1 0 01.293.707V15a2 2 0 01-2 2h-2M8 7H6a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2v-2" />
-                                        </svg>
-                                    </div>
-                                    <div className=' overflow-hidden'>
-                                        <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Docs</span>
-                                    </div>
-                                </div>
-                            </NavLink>
-                        </div>
-                        <div class="flex flex-col items-center w-full mt-2 border-t border-gray-300">
-                            <NavLink to="#" className='w-full'>
-                                <div class="flex w-full items-center  h-12 px-3 mt-2 rounded hover:bg-gray-300">
-                                    <div className={` ${close ? '  py-1  ' : 'py-1'}`}>
-                                        <svg class={`w-6 h-6  stroke-current  ${close && 'mx-auto '} `} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-                                        </svg>
-                                    </div>
-                                    <div className=' overflow-hidden'>
-                                        <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Products</span>
-                                    </div>
-                                </div>
-                            </NavLink>
-                            <NavLink to="#" className='w-full'>
-                                <div class="flex w-full items-center  h-12 px-3 mt-2 rounded hover:bg-gray-300">
-                                    <div className={` ${close ? '  py-1  ' : 'py-1'}`}>
-                                        <svg class={`w-6 h-6  stroke-current  ${close && 'mx-auto '} `} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                                        </svg>
-                                    </div>
-                                    <div className=' overflow-hidden'>
-                                        <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Settings</span>
-                                    </div>
-                                </div>
-                            </NavLink>
-                            <NavLink to="#" className='w-full'>
-                                <div class="relative flex w-full items-center  h-12 px-3 mt-2 rounded hover:bg-gray-300">
-                                    <div className={` ${close ? '  py-1  ' : 'py-1'}`}>
-                                        <svg class={`w-6 h-6  stroke-current  ${close && 'mx-auto '} `} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
-                                        </svg>
-                                    </div>
-                                    <div className=' overflow-hidden'>
-                                        <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Messages</span>
-                                    </div>
-
-                                </div>
-                            </NavLink>
+                                                )}
+                                            </div>
+                                        </NavLink>
+                                    </>
+                                )
+                            }
                         </div>
                     </div>
                 </div>
@@ -140,10 +251,8 @@ const DashboardNav = () => {
 
 
                             <div className=' overflow-hidden'>
-                                <span className={`transition-all duration-300 ease-out overflow-hidden text-sm  font-bold ${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Account</span>
+                                <span className={`transition-all duration-300 ease-out overflow-hidden text-sm font-semibold${close ? ' translate-x-[-24rem] -ml-20  ' : ' translate-x-0 pl-2'}`}  >Account</span>
                             </div>
-
-                            {/* <span class={`ml-2 text-sm  font-bold z-10 overflow-hidden ${close ? 'opacity-0 duration-300 translate-x-[-14px] transition-all w-0 ease-in-out ' : 'block  opacity-100 -translate-x-0 transition-all duration-300 ease-in-out'}`}>Account</span> */}
                         </div>
                     </NavLink>
                 </div>

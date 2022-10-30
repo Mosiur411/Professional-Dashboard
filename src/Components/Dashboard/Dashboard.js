@@ -7,7 +7,7 @@ const Dashboard = () => {
 
     return (
 
-        <div className=' flex'>
+        <div className=' flex bg-white'>
             <div className=' h-screen'>
                 <DashboardNav></DashboardNav>
 
