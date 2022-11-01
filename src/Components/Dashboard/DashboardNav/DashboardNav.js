@@ -181,7 +181,7 @@ const DashboardNav = () => {
                     <NavLink to='/' className={`w-full  ${close ? 'px-0' : 'px-4'}`}>
                         <div class={` w-full items-center mt-3 h-12  ${close ? '  flex  items-center w-full ml-3' : 'flex flex-row '}`}>
                             <div className={`${close ? '' : 'py-1'}`}>
-                                <svg onClick={() => setClose(!close)} class={`w-8 h-8  fill-current text-[#887fed] ${close && 'mx-auto ml-1'} `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <svg onClick={() => { setClose(!close); setDropdownEnter(-1) }} class={`w-8 h-8  fill-current text-[#887fed] ${close && 'mx-auto ml-1'} `} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path d="M11 17a1 1 0 001.447.894l4-2A1 1 0 0017 15V9.236a1 1 0 00-1.447-.894l-4 2a1 1 0 00-.553.894V17zM15.211 6.276a1 1 0 000-1.788l-4.764-2.382a1 1 0 00-.894 0L4.789 4.488a1 1 0 000 1.788l4.764 2.382a1 1 0 00.894 0l4.764-2.382zM4.447 8.342A1 1 0 003 9.236V15a1 1 0 00.553.894l4 2A1 1 0 009 17v-5.764a1 1 0 00-.553-.894l-4-2z" />
                                 </svg>
                             </div>
@@ -224,7 +224,7 @@ const DashboardNav = () => {
                                                                         <VscDebugBreakpointLog className=' text-lg' />
                                                                     </div>
                                                                 </div>
-                                                                <div onClick={() => setDropdownEnter(index)} className='overflow-hidden h-6 w-[80%]'>
+                                                                <div className='overflow-hidden h-6 w-[80%]'>
                                                                     <span className={`transition-all  w-[80%]  duration-500 ease-out overflow-hidden text-sm font-semibold ${close ? ' translate-x-[-24rem] -ml-28 ' : 'duration-500 translate-x-0 pl-2'}`} >{dropmenu?.ServiceRoute}</span>
                                                                 </div>
                                                             </div>
