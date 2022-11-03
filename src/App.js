@@ -3,7 +3,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 
 const App = () => {
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <Dashboard></Dashboard>
     </div>
   );

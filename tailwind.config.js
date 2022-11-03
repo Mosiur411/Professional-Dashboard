@@ -3,18 +3,23 @@ module.exports = {
   daisyui: {
     themes: [
       {
-        Light: {
-          ...require('daisyui/src/colors/themes')['[data-theme=Light]'],
+        myLight: {
+          ...require('daisyui/src/colors/themes')['[data-theme=myLight]'],
           primary: '#ffffff',
-          secondary: '#0a2440',
+          "base-100": "#4b5563",
+          "base-200": "#e5e7eb",
+          neutral: '#000000'
         },
-        Dark: {
-          ...require('daisyui/src/colors/themes')['[data-theme=Dark]'],
+        myDark: {
+          ...require('daisyui/src/colors/themes')['[data-theme=myDark]'],
           primary: '#001253',
-          secondary: '#E14D2A',
+          "base-100": "#f3f4f6",
+          "base-200": "#0b0b43",
+          neutral: '#ffffff',
         },
       },
     ],
+
   },
   plugins: [require('daisyui')],
 }
