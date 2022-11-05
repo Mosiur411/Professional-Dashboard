@@ -14,16 +14,9 @@ import { VscDebugBreakpointLog } from "react-icons/vsc";
 
 
 
-const DashboardNav = () => {
+const DashboardNav = ({ close, setClose }) => {
 
-    const [close, setClose] = useState(JSON.parse(localStorage.getItem('close')));
     const [DropdownEnter, setDropdownEnter] = useState(-1)
-
-    useEffect(() => {
-        localStorage.setItem('close', JSON.stringify(close));
-        setClose(close);
-    }, [close]);
-
 
 
     const main_menu = [
@@ -181,9 +174,9 @@ const DashboardNav = () => {
     ]
 
     return (
-        <div className=' h-full'>
+        <div className=' h-full '>
             {/* <!-- Component Start --> */}
-            <div class={`flex flex-col items-center justify-between h-full overflow-x-hidden scrollbar overflow-y-auto transition-all duration-300  ease-in-out  bg-primary text-base-100 shadow-2xl shadow-gray-500 rounded ${close ? 'w-16 duration-500' : 'w-60 '}`}>
+            <div class={`flex flex-col  items-center justify-between h-full overflow-x-hidden scrollbar overflow-y-auto transition-all duration-300  ease-in-out  bg-primary text-base-100 shadow-2xl shadow-gray-500 rounded ${close ? 'w-16 duration-500' : 'w-60 '}`}>
                 <div className=' w-full flex flex-col justify-between '>
                     <NavLink to='/' className={`w-full  ${close ? 'px-0' : 'px-4'}`}>
                         <div class={` w-full items-center mt-3 h-12  ${close ? '  flex  items-center w-full ml-3' : 'flex flex-row '}`}>

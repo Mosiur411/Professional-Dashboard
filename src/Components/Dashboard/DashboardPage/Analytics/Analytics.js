@@ -18,6 +18,9 @@ const Analytics = () => {
                     <ReChartBar></ReChartBar>
                     <Linechart></Linechart>
                 </div>
+                <div className=' h-80 w-full bg-primary my-8 rounded-lg '>
+
+                </div>
             </div>
         </div>
     );

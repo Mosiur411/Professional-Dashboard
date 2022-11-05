@@ -2,7 +2,7 @@ import React from 'react';
 import { Line, LineChart, ResponsiveContainer } from 'recharts';
 import { BsSuitHeart } from "react-icons/bs";
 import { MdArrowDropDown } from "react-icons/md";
-
+import shape from '../../../../../assect/image/design2.png'
 
 const Linechart = () => {
 
@@ -20,7 +20,7 @@ const Linechart = () => {
     ];
 
     return (
-        <div className=' h-80 lg:w-[37%]  w-full lg:mb-0 mb-7  rounded-lg lg:flex items-center p-5 bg-primary shadow-[0_0_16px_0_rgba(0,0,0,0.2)]'>
+        <div className=' relative overflow-hidden h-80 lg:w-[37%]  w-full lg:mb-0 mb-7  rounded-lg lg:flex items-center p-5 bg-primary shadow-[0_0_16px_0_rgba(0,0,0,0.2)]'>
             <div className="w-full h-full text-center text-base-100">
 
                 <div className=" text-center">
@@ -52,6 +52,7 @@ const Linechart = () => {
                     </ResponsiveContainer>
                 </div>
             </div>
+            <img className=' w-80 absolute -top-28 -left-28 rotate-[75deg] opacity-50' src={shape} alt="shape" />
         </div>
     );
 };

@@ -8,7 +8,8 @@ module.exports = {
           primary: '#ffffff',
           "base-100": "#4b5563",
           "base-200": "#e5e7eb",
-          neutral: '#000000'
+          neutral: '#000000',
+          secondary: '#ffffff',
         },
         myDark: {
           ...require('daisyui/src/colors/themes')['[data-theme=myDark]'],
@@ -16,6 +17,7 @@ module.exports = {
           "base-100": "#f3f4f6",
           "base-200": "#0b0b43",
           neutral: '#ffffff',
+          secondary: '#617294',
         },
       },
     ],

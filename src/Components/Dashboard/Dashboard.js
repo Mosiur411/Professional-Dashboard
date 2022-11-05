@@ -12,13 +12,26 @@ const Dashboard = () => {
         setDark(dark);
     }, [dark]);
 
+    const [close, setClose] = useState(JSON.parse(localStorage.getItem('close')));
+
+
+    useEffect(() => {
+        localStorage.setItem('close', JSON.stringify(close));
+        setClose(close);
+    }, [close]);
+
+    console.log(close);
 
     return (
-        <div data-theme={`${dark ? 'myDark' : 'myLight'}`} className=' flex bg-white'>
-            <div className=' h-screen'>
-                <DashboardNav></DashboardNav>
+        <div data-theme={`${dark ? 'myDark' : 'myLight'}`} className=' flex '>
+            <div className=' h-screen  fixed top-0 left-0 z-[9999]'>
+                <DashboardNav setClose={setClose} close={close}></DashboardNav>
             </div>
-            <DashboardPage className='bg-primary' setDark={setDark} dark={dark}></DashboardPage>
+            <div className={`b w-full transition-all duration-500 ease-in-out bg-secondary  ${close ? 'pl-20' : 'pl-64 duration-200'}`}>
+                <div className=' w-full pr-20'>
+                    <DashboardPage setDark={setDark} dark={dark}></DashboardPage>
+                </div>
+            </div>
         </div>
     );
 };
